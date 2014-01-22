@@ -1,14 +1,10 @@
 (function(root) {
 	var Asteroids = root.Asteroids = (root.Asteroids || {});
 
-<<<<<<< HEAD
-	var Asteroid = Asteroids.Asteroid = function(pos, vel, radius) {
-=======
 
 
 	var Asteroid = Asteroids.Asteroid = function(pos, vel, radius) {
 		// Call parent class's constructor
->>>>>>> 9b5f1a270f628d7a96c0eb411444d01a5ab27cbc
 		Asteroids.MovingObject.call(this, pos,
 										  vel,
 										  radius || Asteroid.RADIUS,
@@ -17,48 +13,13 @@
 
 	Asteroid.inherits(Asteroids.MovingObject);
 
-<<<<<<< HEAD
-=======
 
 
 	// Constants
->>>>>>> 9b5f1a270f628d7a96c0eb411444d01a5ab27cbc
 	Asteroid.RADIUS = 20;
 	Asteroid.COLOR = "brown";
 	Asteroid.SPEED = 50/1; // pixels/second
 
-<<<<<<< HEAD
-	Asteroid.randomAsteroid = function(dimX, dimY, pos, radius) {		
-		var x;
-		var y;
-		
-		if (pos) {
-			x = pos[0];
-			y = pos[1];
-		} else {
-			// Spawn asteroid at edge of screen		
-			if (Math.floor(Math.random() * 2)) {
-				// Left or right side
-				x = Math.round(Math.random()) * dimX;
-				// Random y
-				y = Math.floor(Math.random() * dimY)
-			} else {
-				// Random x
-				x = Math.floor(Math.random() * dimX);
-				// Top or bottom side
-				y = Math.round(Math.random()) * dimY;
-			}
-		}
-
-		return new Asteroid([x,y], Asteroid.randomVel(), radius);
-	};
-
-	// Random angle, constant speed (in pixels/second)
-	Asteroid.randomVel = function() {
-		var angle = Math.random() * (2 * Math.PI);
-		var vx = Asteroid.SPEED * Math.cos(angle);
-		var vy = Asteroid.SPEED * Math.sin(angle);
-=======
 
 
 	Asteroid.randomAsteroid = function(dimX, dimY) {		
@@ -89,15 +50,11 @@
 		var angle = Math.random() * (2 * Math.PI);
 		var vx = speed * Math.cos(angle);
 		var vy = speed * Math.sin(angle);
->>>>>>> 9b5f1a270f628d7a96c0eb411444d01a5ab27cbc
 
 		return [vx, vy];
 	};
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9b5f1a270f628d7a96c0eb411444d01a5ab27cbc
 	Asteroid.prototype.move = function(interval, dimX, dimY) {
 		Asteroids.MovingObject.prototype.move.call(this, interval, dimX, dimY);
 
@@ -105,8 +62,6 @@
 		this.pos[0] = (this.pos[0] + dimX) % dimX;
 		this.pos[1] = (this.pos[1] + dimY) % dimY;
 	};
-<<<<<<< HEAD
-=======
 
 
 	// Split asteroid into two smaller asteroids
@@ -128,5 +83,4 @@
 		return [new Asteroid([x,y], vel1, this.radius/2),
 				new Asteroid([x,y], vel2, this.radius/2)];
 	};
->>>>>>> 9b5f1a270f628d7a96c0eb411444d01a5ab27cbc
 })(this);
